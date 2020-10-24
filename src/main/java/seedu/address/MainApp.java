@@ -67,7 +67,7 @@ public class MainApp extends Application {
         model = initModelManager(storage, userPrefs);
 
         logic = new LogicManager(model, storage);
-        logic.execute("a-list");
+        logic.setAppLaunchAppointmentList();
 
         ui = new UiManager(logic);
 

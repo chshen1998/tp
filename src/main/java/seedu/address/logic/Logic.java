@@ -51,4 +51,14 @@ public interface Logic {
      * Set the user prefs' GUI settings.
      */
     void setGuiSettings(GuiSettings guiSettings);
+
+    /**
+     * Display the start up view.
+     */
+    void setAppLaunchAppointmentList() throws ParseException, CommandException;
+
+    /**
+     * Refreshes the missed appointments in address book.
+     */
+    void refreshMissedAppointments() throws ParseException, CommandException;
 }

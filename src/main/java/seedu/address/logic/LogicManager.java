@@ -76,13 +76,6 @@ public class LogicManager implements Logic {
         return model.getFilteredAppointmentList();
     }
 
-    /*
-    @Override
-    public ObservableList<Appointment> getStartFilteredAppointmentList() {
-        return model.getStartFilteredAppointmentList();
-    }
-    */
-
     @Override
     public Path getAddressBookFilePath() {
         return model.getAddressBookFilePath();
@@ -96,5 +89,17 @@ public class LogicManager implements Logic {
     @Override
     public void setGuiSettings(GuiSettings guiSettings) {
         model.setGuiSettings(guiSettings);
+    }
+
+    @Override
+    public void setAppLaunchAppointmentList() throws ParseException, CommandException {
+        Command command = this.addressBookParser.parseCommand("a-list");
+        command.execute(this.model);
+    }
+
+    @Override
+    public void refreshMissedAppointments() throws ParseException, CommandException {
+        Command command = this.addressBookParser.parseCommand("a-new-misses");
+        command.execute(this.model);
     }
 }

@@ -26,10 +26,8 @@ public class TimerThread extends Thread {
     public void run() {
         while (running) {
             try {
-                logic.execute("a-new-misses");
-            } catch (CommandException e) {
-                e.printStackTrace();
-            } catch (ParseException e) {
+                logic.refreshMissedAppointments();
+            } catch (ParseException | CommandException e) {
                 e.printStackTrace();
             }
             try {
